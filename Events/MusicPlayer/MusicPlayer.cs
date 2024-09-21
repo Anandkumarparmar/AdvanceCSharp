@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdvanceCSharp;
+namespace AdvanceCSharp.Events.MusicPlayer;
 
 // Define delegete for an event
 public delegate void PlaybackEventHandler(string message);
@@ -33,7 +33,7 @@ public class MusicPlayer
 
     public void Play(string track)
     {
-        currentTrack = track;   
+        currentTrack = track;
         OnPlay?.Invoke($"Playing Track {currentTrack}");
     }
 
