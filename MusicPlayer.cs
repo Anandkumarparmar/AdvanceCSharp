@@ -31,15 +31,15 @@ public class MusicPlayer
         Console.WriteLine($"Track Selected {currentTrack}");
     }
 
-    public void Play(PlaybackEventHandler playbackEvent)
+    public void Play(string track)
     {
-        playbackEvent($"Playing Track {currentTrack}");
-        //OnPlay?.Invoke($"Playing Track {currentTrack}");
+        currentTrack = track;   
+        OnPlay?.Invoke($"Playing Track {currentTrack}");
     }
 
-    public void Pause()
+    public void Pause(PlaybackEventHandler playbackEvent)
     {
-        OnPause?.Invoke($"Pausing Track {currentTrack}");
+        playbackEvent($"Pausing Track {currentTrack}"); // Call delegate callback instead invoking event
     }
 
     public void Stop()
